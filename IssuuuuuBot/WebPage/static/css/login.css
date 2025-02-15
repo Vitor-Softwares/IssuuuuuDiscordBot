@@ -1,0 +1,103 @@
+/* Estilo geral do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "left right";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+  }
+  
+  /* Estilo do cabeçalho */
+
+h1, h2 { text-align: center; }
+    form { display: flex; flex-direction: column; align-items: center; margin: 20px; }
+    input[type="file"] { margin: 10px 0; }
+    input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  .header {
+    grid-area: header;
+    padding: 20px;
+    text-align: center;
+    background-color: #6200ea;
+    color: white;
+  }
+  
+  .header h2, .header h3 {
+    margin: 0;
+  }
+  
+  /* Estilo das colunas */
+  .left, .right {
+    padding: 20px;
+  }
+  
+  .left {
+    grid-area: left;
+    background-color: #f1f1f1;
+  }
+  
+  .right {
+    grid-area: right;
+    background-color: #e1e1e1;
+  }
+  
+  /* Estilo do formulário de login */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3700b3;
+  }
+  
+  /* Estilo para mensagens de erro e sucesso */
+  .message {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .message.error {
+    background-color: #ff4444; /* Vermelho para erros */
+  }
+  
+  .message.success {
+    background-color: #00C851; /* Verde para sucesso */
+  }
+  

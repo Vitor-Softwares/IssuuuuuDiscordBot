@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issuuuu</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}"/>
+</head>
+<body>
+  <div class="header">
+    <h2>Olá eu sou o Issuuuuu,</h2>
+    <h2>O seu bot reprodutor de áudios no DISCORD!</h2>
+  </div>
+  <div class="left">
+    <div class="messages">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="message {{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+    <br>
+    <h2>Enviar um novo áudio</h2>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" accept=".mp3" name="audio">
+      <br>
+      <input type="submit" value="Upload">
+    </form>
+  </div>
+  <div class="right">
+    <h2>Áudios:</h2>
+    <div class="audio-buttons">
+      {% for audio in audio_files %}
+        <div class="audio-button-container">
+          <form method="post" action="/play" style="display: inline;">
+            <input type="submit" class="audio-button" name="audio" value="{{ audio }}">
+          </form>
+          <form method="post" action="/delete" style="display: inline;" onsubmit="return confirmDelete();">
+            <input type="hidden" name="audio" value="{{ audio }}">
+            <button type="submit" class="delete-button">X</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
